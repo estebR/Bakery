@@ -1,0 +1,54 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
+}
+
+.about-main {
+  padding: 2rem;
+}
+
+.our-story h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.our-story p {
+  max-width: 800px;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.about-images {
+  display: flex;
+  gap: 1rem;
+}
+
+.about-images img {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.testimonials {
+  margin-top: 3rem;
+}
+
+.testimonials h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  flex: 1;
+  background: #eee;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: 0.95rem;
+}
