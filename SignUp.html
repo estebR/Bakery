@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Sweet Hour Bakery</title>
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body class="login-body">
+  <div id="navbar-container"></div>
+
+  <div class="login-container">
+    <div class="login-box">
+      <h1>🍩 Sweet Hour Bakery</h1>
+      <h2>Sign up</h2>
+
+      <form action="ProcessLogin.php" method="post">
+        <label>Full Name</label>
+        <input type="text" name="full_name" placeholder="Full Name" required>
+
+        <label>Phone Number</label>
+        <input type="text" name="phone_number" placeholder="203-555-5555" required>
+
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="you@example.com" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <div class="login-options">
+          <label><input type="checkbox"> Remember Me</label>
+          <a href="#">Forgot your password?</a>
+        </div>
+
+        <button type="submit">Sign in</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/navbar.js"></script>
+</body>
+</html>

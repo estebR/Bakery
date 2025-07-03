@@ -1,0 +1,9 @@
+CREATE DATABASE BAKERY;
+
+USE BAKERY;
+
+CREATE TABLE names (
+    id INT PRIMARY KEY,
+    full_name VARCHAR (255)
+
+);
