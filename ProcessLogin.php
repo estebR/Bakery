@@ -1,36 +1,45 @@
 <?php
+session_start();
+
 $servername = "localhost";
 $username = "root";
-$password = "kiramiso"; // likely empty unless you set one
+$password = "kiramiso"; // your MySQL password
 $dbname = "bakery";
-$conn = new mysqli($servername, $username, $password, $dbname);
 
+$conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-echo "<pre>";
-var_dump($_POST);
-echo "</pre>";
-
-
-// Collect and sanitize form data
-$full_name = $conn->real_escape_string($_POST['full_name']);
-$phone_number = $conn->real_escape_string($_POST['phone_number']);
-$email = $conn->real_escape_string($_POST['email']);
+// Get email and password from form
+$email = $_POST['email'];
 $password_plain = $_POST['password'];
 
-// Hash the password securely
-$password_hashed = password_hash($password_plain, PASSWORD_DEFAULT);
+// Retrieve user data from DB
+$sql = "SELECT * FROM users WHERE email = '$email'";
+$result = $conn->query($sql);
 
-// Insert into database
-$sql = "INSERT INTO users (full_name, phone_number, email, password)
-        VALUES ('$full_name', '$phone_number', '$email', '$password_hashed')";
+if ($result->num_rows > 0) {
+    $user = $result->fetch_assoc();
+    // Verify password
+    if (password_verify($password_plain, $user['password'])) {
+        // Password correct, set session
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['full_name'] = $user['full_name'];
+        $_SESSION['email'] = $user['email'];
 
-if ($conn->query($sql) === TRUE) {
-    echo "✅ User registered successfully! <a href='login.html'>Back</a>";
+        //echo "✅ Login successful! Welcome, " . $_SESSION['full_name'] . ".";
+        header("Location: home.php");
+        exit();
+
+        // Redirect to dashboard if desired:
+        // header("Location: dashboard.php");
+        // exit();
+    } else {
+        echo "❌ Incorrect password.";
+    }
 } else {
-    echo "❌ Error: " . $sql . "<br>" . $conn->error;
+    echo "❌ Email not found.";
 }
 
 $conn->close();
