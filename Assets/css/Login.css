@@ -59,3 +59,12 @@ body.login-body {
   font-weight: bold;
   cursor: pointer;
 }
+
+.logo-img {
+  height: 36px;        /* Logo size */
+  width: 36px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;   /* Space between the logo and text */
+  vertical-align: middle; /* Aligns the image with the text vertically */
+}
