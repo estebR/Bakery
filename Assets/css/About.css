@@ -10,8 +10,9 @@ body {
 }
 
 .our-story h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+    margin-top: 0;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .our-story p {
@@ -26,7 +27,7 @@ body {
 }
 
 .about-images img {
-  width: 50%;
+  width: 15%;
   border-radius: 10px;
 }
 
