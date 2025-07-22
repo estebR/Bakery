@@ -13,6 +13,10 @@
     <div class="login-box">
       <h1><img src="assets/images/Image.jpg" alt="Sweet Hour Bakery Logo" class="logo-img">Sweet Hour Bakery</h1>
       <h2>Login to Your Account</h2>
+      
+      <div id="signup-success" class="popup-message" style="display: none;">
+          ✅Successfully signed up! You can now log in.
+      </div>
 
       <form action="ProcessLogin.php" method="post">
         <label>Email Address</label>
@@ -32,5 +36,17 @@
   </div>
 
   <script src="js/navbar.js"></script>
+
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('signup') === 'success') {
+    const popup = document.getElementById('signup-success');
+    if (popup) popup.style.display = 'block';
+
+    // Optional: Clean the URL so it doesn't show ?signup=success forever
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+</script>
+
 </body>
 </html>

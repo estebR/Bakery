@@ -1,45 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Order</title>
-  <link rel="stylesheet" href="assets/css/navbar.css">
-  <link rel="stylesheet" href="assets/css/order.css">
+<meta charset="UTF-8">
+<title>Order - Sweet Hour Bakery</title>
+<link rel="stylesheet" href="assets/css/navbar.css">
+<link rel="stylesheet" href="assets/css/order.css">
 </head>
 <body>
-  <div id="navbar-container"></div>
-
-  <main class="order-main">
-    <h1>Place Your Order</h1>
-    <form class="order-form">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="item">Select Item</label>
-      <select id="item" name="item" required>
-        <option value="">--Choose an item--</option>
-        <option value="cupcake">Cupcake</option>
-        <option value="brownie">Brownie</option>
-        <option value="cookie">Cookie</option>
-      </select>
-
-      <label for="quantity">Quantity</label>
-      <input type="number" id="quantity" name="quantity" min="1" required>
-
-      <label for="message">Message</label>
-      <textarea id="message" rows="4" placeholder="Any notes?"></textarea>
-
-      <button type="submit">Submit Order</button>
-    </form>
-  </main>
-
+<div id="navbar-container"></div>
+ 
+  <main class="order-container">
+<!-- LEFT: Product Selection -->
+<section class="products">
+<h2>Customize Your Order</h2>
+<div class="product-list">
+<div class="product">
+<img src="assets/images/cupcake.jpg" alt="Chocolate Cupcake">
+<h3>Chocolate Cupcake</h3>
+<p>$3.00</p>
+<select><option>1</option><option>2</option><option>3</option></select>
+</div>
+ 
+        <div class="product">
+<img src="assets/images/donut.jpg" alt="Raspberry Donut">
+<h3>Raspberry Donut</h3>
+<p>$2.50</p>
+<select><option>1</option><option>2</option><option>3</option></select>
+</div>
+ 
+        <div class="product">
+<img src="assets/images/cake.jpg" alt="Red Velvet Cake">
+<h3>Red Velvet Cake</h3>
+<p>$4.00</p>
+<select><option>1</option><option>2</option><option>3</option></select>
+</div>
+</div>
+</section>
+ <!--Hello-->
+    <!-- RIGHT: Cart Summary -->
+<section class="cart">
+<h3>Cart Summary</h3>
+<ul class="cart-items">
+<li>Chocolate Cupcake x 2 <span>$6.00</span></li>
+<li>Raspberry Donut x 1 <span>$2.50</span></li>
+<li>Red Velvet Cake x 1 <span>$4.00</span></li>
+</ul>
+<p class="total">Total: <strong>$12.50</strong></p>
+ 
+      <h4>Payment Options</h4>
+<label><input type="radio" name="payment" checked> Credit Card</label><br>
+<label><input type="radio" name="payment"> PayPal</label><br><br>
+ 
+      <button class="submit-btn">Submit Order</button>
+</section>
+</main>
+ 
   <footer class="footer">
-    <p>Contact us at orders@sweettreats.com</p>
-  </footer>
-
+<div class="contact-info">
+<p><strong>Contact Us</strong><br>123 Bakery Lane, SweetCity<br>Phone: (555) 123-4567</p>
+</div>
+<div class="social-icons">
+<a href="#">📘</a>
+<a href="#">🐦</a>
+<a href="#">📸</a>
+</div>
+</footer>
+ 
   <script src="js/navbar.js"></script>
 </body>
 </html>

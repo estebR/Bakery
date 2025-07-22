@@ -25,7 +25,14 @@ $sql = "INSERT INTO users (full_name, phone_number, email, password)
         VALUES ('$full_name', '$phone_number', '$email', '$password_hashed')";
 
 if ($conn->query($sql) === TRUE) {
-    header("Location: login.html");
+    $subject = "Welcome to Sweet Hour Bakery!";
+    $message = "Hi $full_name,\n\nThank you for signing up at Sweet Hour Bakery! 🍰\nWe're excited to have you with us.\n\n- The Sweet Hour Team";
+    $headers = "From: no-reply@sweethourbakery.com";
+
+    // Send the email (will only work on a live server or configured SMTP on localhost)
+    mail($email, $subject, $message, $headers);
+
+    header("Location: login.html?signup=success");
     exit();
 
 } else {

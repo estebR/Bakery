@@ -1,10 +1,12 @@
 <?php
 session_start();
 
+
+
 $servername = "localhost";
 $username = "root";
 $password = "kiramiso"; // your MySQL password
-$dbname = "bakery";
+$dbname = "bakery"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -29,7 +31,7 @@ if ($result->num_rows > 0) {
         $_SESSION['email'] = $user['email'];
 
         //echo "✅ Login successful! Welcome, " . $_SESSION['full_name'] . ".";
-        header("Location: home.php");
+        header("Location: home.html");
         exit();
 
         // Redirect to dashboard if desired:
