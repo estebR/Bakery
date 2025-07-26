@@ -1,55 +1,52 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
+  font-family: 'Quicksand', sans-serif;
   background: #fff;
   color: #333;
+  margin: 0;
 }
 
-.about-main {
-  padding: 2rem;
+/* Hero Section */
+.about-hero {
+  background: url('../images/bakery_shelf.jpg') center/cover no-repeat;
+  height: 400px;
+  position: relative;
+}
+.about-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.about-hero .content {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.our-story h2 {
-    margin-top: 0;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
 }
 
-.our-story p {
-  max-width: 800px;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+p {
+  line-height: 1.7;
 }
 
-.about-images {
-  display: flex;
-  gap: 1rem;
-}
-
-.about-images img {
-  width: 15%;
-  border-radius: 10px;
-}
-
-.testimonials {
-  margin-top: 3rem;
-}
-
-.testimonials h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
-
-.testimonial-grid {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
+/* Testimonials */
 .testimonial-card {
-  flex: 1;
-  background: #eee;
-  border-radius: 10px;
-  padding: 1rem;
-  font-size: 0.95rem;
+  background: #fff3f0;
+  border-left: 6px solid #d4701e;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Footer */
+.footer a {
+  text-decoration: none;
+  color: #f8f9fa;
+}
+.footer a:hover {
+  text-decoration: underline;
 }

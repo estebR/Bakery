@@ -1,71 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Order - Sweet Hour Bakery</title>
-<link rel="stylesheet" href="assets/css/navbar.css">
-<link rel="stylesheet" href="assets/css/order.css">
+  <meta charset="UTF-8">
+  <title>Order - Sweet Hour Bakery</title>
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/order.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="navbar-container"></div>
- 
+
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <!-- Order Page -->
   <main class="order-container">
-<!-- LEFT: Product Selection -->
-<section class="products">
-<h2>Customize Your Order</h2>
-<div class="product-list">
-<div class="product">
-<img src="assets/images/cupcake.jpg" alt="Chocolate Cupcake">
-<h3>Chocolate Cupcake</h3>
-<p>$3.00</p>
-<select><option>1</option><option>2</option><option>3</option></select>
-</div>
- 
+    <section class="products">
+      <h2 class="mb-4">Customize Your Order</h2>
+      <p class="mb-4">Select how many of each item you’d like to order. You’ll pay upon pickup.</p>
+
+      <div class="product-list">
         <div class="product">
-<img src="assets/images/donut.jpg" alt="Raspberry Donut">
-<h3>Raspberry Donut</h3>
-<p>$2.50</p>
-<select><option>1</option><option>2</option><option>3</option></select>
-</div>
- 
+          <img src="assets/images/tres_leches.jpg" alt="Tres Leches">
+          <h3>Tres Leches</h3>
+          <p>$3.00</p>
+          <select>
+            <option value="0">0</option>
+            <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+          </select>
+        </div>
+
         <div class="product">
-<img src="assets/images/cake.jpg" alt="Red Velvet Cake">
-<h3>Red Velvet Cake</h3>
-<p>$4.00</p>
-<select><option>1</option><option>2</option><option>3</option></select>
-</div>
-</div>
-</section>
- <!--Hello-->
-    <!-- RIGHT: Cart Summary -->
-<section class="cart">
-<h3>Cart Summary</h3>
-<ul class="cart-items">
-<li>Chocolate Cupcake x 2 <span>$6.00</span></li>
-<li>Raspberry Donut x 1 <span>$2.50</span></li>
-<li>Red Velvet Cake x 1 <span>$4.00</span></li>
-</ul>
-<p class="total">Total: <strong>$12.50</strong></p>
- 
-      <h4>Payment Options</h4>
-<label><input type="radio" name="payment" checked> Credit Card</label><br>
-<label><input type="radio" name="payment"> PayPal</label><br><br>
- 
-      <button class="submit-btn">Submit Order</button>
-</section>
-</main>
- 
+          <img src="assets/images/brownies.jpg" alt="Brownies">
+          <h3>Brownies</h3>
+          <p>$2.50</p>
+          <select>
+            <option value="0">0</option>
+            <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+          </select>
+        </div>
+
+        <div class="product">
+          <img src="assets/images/cookies.jpg" alt="Cookies">
+          <h3>Cookies</h3>
+          <p>$4.00</p>
+          <select>
+            <option value="0">0</option>
+            <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+          </select>
+        </div>
+
+        <div class="product">
+          <img src="assets/images/mixed_cupcake.jpg" alt="Cupcakes">
+          <h3>Cupcakes</h3>
+          <p>$4.00</p>
+          <select>
+            <option value="0">0</option>
+            <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+          </select>
+        </div>
+
+        <div class="product">
+          <img src="assets/images/dubai_chocolate.png" alt="Dubai Chocolate">
+          <h3>Dubai Chocolate</h3>
+          <p>$4.00</p>
+          <select>
+            <option value="0">0</option>
+            <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button class="submit-btn">Submit Order</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer class="footer">
-<div class="contact-info">
-<p><strong>Contact Us</strong><br>123 Bakery Lane, SweetCity<br>Phone: (555) 123-4567</p>
-</div>
-<div class="social-icons">
-<a href="#">📘</a>
-<a href="#">🐦</a>
-<a href="#">📸</a>
-</div>
-</footer>
- 
+    <div class="contact-info">
+      <p><strong>Contact Us</strong><br>Hamden, CT 06518<br>Phone: (555) 123-4567</p>
+    </div>
+    <div class="social-icons">
+      <a href="#">📘</a>
+      <a href="#">📸</a>
+      <a href="#">🐦</a>
+    </div>
+  </footer>
+
   <script src="js/navbar.js"></script>
 </body>
 </html>
