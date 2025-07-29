@@ -1,24 +1,50 @@
-.card-img-top {
-  height: 200px;           /* Fixed height */
-  object-fit: cover;       /* Crop image to fit */
+/* Hero Banner */
+.menu-hero {
+  background: linear-gradient(to right, #F2C6AC, #FFD7BA);
+  color: #5C4033;
+  border-bottom: 2px solid #e0b089;
 }
 
+/* Card Styling */
+.menu-card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
 
 .card-title {
-  font-size: 1.1rem;
-  color: #4b2e1e;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-text {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  color: #555;
 }
 
-.btn-dark {
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
+.price {
+  font-weight: bold;
+  color: #BF6B04;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
 }
 
-.footer {
-  background: #f8f9fa;
+/* Footer */
+footer.footer {
+  background-color: #fff7f0;
+  color: #555;
 }
+

@@ -1,51 +1,117 @@
+/* Reset and Base */
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
-  background: #fff;
+  background-color: #FFF8F4;
   color: #333;
 }
 
 /* Hero Banner */
 .hero-banner {
-  background: url("../images/cookies.jpg") center/cover no-repeat;
-  height: 350px;
-  position: relative;
+  height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+              url('/assets/images/bakery.jpg') center/cover no-repeat;
+  padding: 2rem;
 }
-.hero-banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
+
 .hero-text {
-  position: relative;
-  z-index: 1;
-  padding: 2rem 3rem;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  border-radius: 10px;
-  text-align: center;
-  color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
   max-width: 700px;
 }
 
-/* Cards */
-.highlighted-promotions {
-  background: #fff8f4;
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #fff;
 }
+
+.hero-text p {
+  font-size: 1.25rem;
+  color: #eee;
+}
+
+.hero-text a.btn {
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.hero-text a.btn:hover {
+  background-color: #BF6B04;
+  color: white;
+  border-color: #BF6B04;
+}
+
+/* Promotions Section */
+.highlighted-promotions {
+  background-color: #fff;
+  border: 1px solid #f5e1d8;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.highlighted-promotions h2 {
+  font-family: 'Playfair Display', serif;
+  color: #BF6B04;
+}
+
+.promo img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Overview Section */
 .overview {
-  background: #d4701e;
+  background-color: #BF6B04;
+  color: white;
+  border-radius: 12px;
+}
+
+.overview h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+.overview p {
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 /* Footer */
 .footer {
-  background: #4b2e1e;
-  font-size: 14px;
+  background-color: #333;
+  color: #eee;
+  font-size: 0.95rem;
 }
-.footer-column a {
-  color: #f8f9fa;
-  text-decoration: none;
+
+.footer a {
+  color: #eee;
+  transition: color 0.3s ease;
 }
-.footer-column a:hover {
-  text-decoration: underline;
+
+.footer a:hover {
+  color: #BF6B04;
 }
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.fade-in.delay-1 { animation-delay: 0.2s; }
+.fade-in.delay-2 { animation-delay: 0.4s; }
+.fade-in.delay-3 { animation-delay: 0.6s; }
