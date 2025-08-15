@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get email, password, and role from form
+// Getting email, password, and role from form
 $email = $_POST['email'];
 $password_plain = $_POST['password'];
 $role = $_POST['role'];  // Get the role (either 'admin' or 'user')
@@ -44,7 +44,7 @@ if ($role === 'admin') {
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        // Verify password
+        // Verifying password
         if (password_verify($password_plain, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['full_name'] = $user['full_name'];
