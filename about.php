@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Us | Sweet Hour Bakery</title>
 
   <!-- Fonts & Styles -->
@@ -73,11 +75,7 @@
   <footer class="footer text-white d-flex justify-content-between flex-wrap p-4 mt-5" style="background-color: #333;">
     <div class="footer-column mb-3">
       <h6>Contact Us</h6>
-      <p>Email: info@sweettreats.com<br>Phone: (555) 123-4567</p>
-    </div>
-    <div class="footer-column mb-3">
-      <h6>Follow Us</h6>
-      <p>📘 Facebook | 📸 Instagram | 🐦 Twitter</p>
+      <p>Email: Sweethourbakery@gmail.com</p>
     </div>
     <div class="footer-column mb-3">
       <h6>Quick Links</h6>
@@ -91,4 +89,3 @@
   <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
-
