@@ -1,8 +1,28 @@
 <?php session_start(); ?>
+
+<?php
+// Database connection
+$servername = "localhost";
+$username = "u765616566_bakeryuser";
+$password = "9;vJfy3j7DW?";
+$dbname = "u765616566_Bakery";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("DB connection failed: " . $conn->connect_error);
+}
+
+// Fetches all of the menu items
+$menuQuery = "SELECT * FROM menu ORDER BY id DESC";
+$menuItems = $conn->query($menuQuery);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Order - Sweet Hour Bakery</title>
 
   <!-- Fonts & CSS -->
@@ -16,19 +36,16 @@
       font-family: 'Quicksand', sans-serif;
       background-color: #fffaf5;
     }
-
     .order-container h2 {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
     }
-
     .product-list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
     }
-
     .product {
       background: white;
       border-radius: 12px;
@@ -38,17 +55,16 @@
       width: 260px;
       transition: transform 0.3s ease;
     }
-
     .product img {
       max-width: 100%;
+      height: 180px;
+      object-fit: cover;
       border-radius: 10px;
       margin-bottom: 10px;
     }
-
     .product:hover {
       transform: translateY(-5px);
     }
-
     .product select {
       width: 100%;
       padding: 8px;
@@ -56,7 +72,6 @@
       border: 1px solid #ccc;
       margin-top: 10px;
     }
-
     .custom-form textarea {
       width: 90%;
       max-width: 600px;
@@ -65,12 +80,10 @@
       padding: 15px;
       border: 1px solid #ccc;
     }
-
     .btn-success {
       background-color: #7ec982;
       border: none;
     }
-
     .btn-success:hover {
       background-color: #62b268;
     }
@@ -78,37 +91,38 @@
 </head>
 <body>
 
-  <?php include 'components/navbar.php'; ?>
+<?php include 'components/navbar.php'; ?>
 
-  <main class="order-container container py-5">
-    <section class="products text-center">
-      <h2 class="mb-4" data-aos="fade-up">Customize Your Order</h2>
-      <p class="mb-5 text-muted" data-aos="fade-up">Select how many of each item you’d like to order. You’ll pay upon pickup.</p>
+<main class="order-container container py-5">
+  <section class="products text-center">
+    <h2 class="mb-4" data-aos="fade-up">Customize Your Order</h2>
+    <p class="mb-5 text-muted" data-aos="fade-up">Select how many of each item you’d like to order. You’ll pay upon pickup.</p>
 
+    <form action="ReviewOrder.php" method="post">
       <div class="product-list" data-aos="fade-up">
-        <!-- Product Cards -->
-        <?php
-        $products = [
-          ["Tres Leches", "tres_leches.jpg", "$15.99"],
-          ["Dubai Chocolate", "dubai_chocolate.png", "$12.99"],
-          ["Brownies", "brownies.jpg", "$5.99"],
-          ["Cupcakes", "mixed_cupcake.jpg", "$9.99"],
-          ["Cookies", "cookies.jpg", "$9.99"],
-        ];
-        foreach ($products as $product) {
-          echo "
-            <div class='product' data-aos='fade-up'>
-              <img src='/assets/images/{$product[1]}' alt='{$product[0]}'>
-              <h3>{$product[0]}</h3>
-              <p>{$product[2]}</p>
-              <select><option>0</option><option>1</option><option>2</option></select>
+        <?php if ($menuItems->num_rows > 0): ?>
+          <?php while ($item = $menuItems->fetch_assoc()): ?>
+            <div class="product">
+              <?php
+                $img = !empty($item['image']) ? $item['image'] : 'default.jpg';
+                $imgPath = (strpos($img, '/') !== false) ? $img : "/assets/images/$img";
+              ?>
+              <img src="<?= htmlspecialchars($imgPath) ?>" alt="<?= htmlspecialchars($item['name']) ?>">
+              <h3><?= htmlspecialchars($item['name']) ?></h3>
+              <p>$<?= number_format($item['price'], 2) ?></p>
+              <select name="items[<?= $item['id'] ?>]">
+                <?php for ($i = 0; $i <= 5; $i++): ?>
+                  <option value="<?= $i ?>"><?= $i ?></option>
+                <?php endfor; ?>
+              </select>
             </div>
-          ";
-        }
-        ?>
+          <?php endwhile; ?>
+        <?php else: ?>
+          <p>No items found in the menu.</p>
+        <?php endif; ?>
       </div>
 
-      <!-- Custom Order -->
+      <!-- Users custom rrder -->
       <div class="custom-order mt-5" data-aos="fade-up">
         <h3 class="text-center mb-3">Want Something Special?</h3>
         <p class="text-center text-muted mb-3">Let us know exactly what you're craving — flavors, quantity, frosting, or instructions.</p>
@@ -117,22 +131,25 @@
         </div>
       </div>
 
-      <!-- Submit Button -->
+      <!-- The submit button -->
       <div class="text-center mt-4" data-aos="fade-up">
         <button type="submit" class="btn btn-success px-5 py-2 rounded-pill fw-semibold">Submit Order</button>
       </div>
-    </section>
-  </main>
+    </form>
+  </section>
+</main>
 
-  <!-- Footer -->
-  <footer class="footer text-center mt-5 py-4">
-    <p class="text-muted">Contact us at info@sweettreats.com | Hamden, CT</p>
-  </footer>
+<!-- Footer -->
+<footer class="footer text-center mt-5 py-4">
+  <p class="text-muted">Contact us at Sweethourbakery@gmail.com | Hamden, CT</p>
+</footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init({ duration: 800, once: true });</script>
+<!-- Javascript files  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ duration: 800, once: true });</script>
+
 </body>
 </html>
 
+<?php $conn->close(); ?>
